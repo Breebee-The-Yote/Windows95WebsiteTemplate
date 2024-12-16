@@ -2,3 +2,5 @@
 This is a simple Windows 95 themed website template so everyone else can have cool websites too
 
 It works okay on mobile but it isn't perfect in that department yet
+
+Based on my website https://breebee.nekoweb.org/
