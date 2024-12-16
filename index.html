@@ -1,0 +1,254 @@
+<!--<!DOCTYPE html>-->
+<html>
+
+<head>
+<!--Title the page whatever you want-->
+<title>Windows 95</title>
+
+<!--Both the link and font face tag are required on every page if you want the styling to work correnctly-->
+<link rel="stylesheet" href="scripts/styles.css">
+<style>
+  @font-face {
+    font-family: wind95;
+    src: url(fonts/w95fa.woff);
+  }
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=0.45">
+</head>
+
+<!--The wallpaper color, usefull if you want to change that-->
+<body style="background-color:#008282;">
+
+<!--Jquery initialization-->
+<script src="scripts/jquery-3.7.1.min.js"></script>
+<script src="scripts/jquery-ui.min.js"></script>
+
+<!--This is the alert popup-->
+<!--This is what appears when the user first loads the page-->
+<div id="alert" class="appdiv" style="position: absolute; width: 28%; height: 22%; z-index: 1; left: 30%; top: 100px; max-height: 300px;">
+  <div class="appdivheader"><div class="apptitle">Alert</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+  <div style="display: inline-block; padding: 30px; margin-right:15px"><img src="images/alert.png" height="30%" class="pixeled"></div>
+  <!--In order for it to work right with the image, it must be 3 lines. If you need less a <br> can be used instead-->
+  <div style="display: inline-block;">Currently running v1.3<br>Updated 12/15/2024 with note:<br>Made a completely blank template version</div><br>
+  <br><div style="display: flex;justify-content: center;"><div style="border-style: outset;display: inline-block; cursor:pointer" class="frameclose">Accpet and Close</div></div>
+</div>
+
+<!--The Internet Mail app-->
+<!--It is connected to the About Me button-->
+<div id="about" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 1; left: 10px; top: 100px; min-width: 600px; max-height: 420px;">
+<div class="appdivheader"><div class="apptitle">Internet Mail</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+<div class="netmail">
+  <br style="font-size: 2px;">
+  <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; View &nbsp; Mail &nbsp; Help</div>
+  <br style="font-size: 5px;">
+<div class="notepadheader" style="line-height: 24px;">&nbsp; &nbsp; Folders<div class="locationdiv" style="width:86.5%;">Inbox</div></div>
+<br style="font-size: 8px;">
+<div>
+&nbsp;<div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:30.7%">From</div>
+<div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:30.7%">Subject</div>
+<div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:30.7%">Recieved</div></div>
+<br style="font-size: 3px;">
+<!--This is the section with the username, title, and date-->
+<!--The date is dynamically updated to the current one-->
+<!--It may look like an absurd amout of &nbsp; but that's the amount of space it needed and I don't know how else to do it-->
+<div class="appcontent" style="width: 97%; height: 6%">Username 
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  About Me 
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span id="date">current</span></div>
+</div><br style="font-size: 2px;">
+<!--The message content or in this case, the about me paragraph-->
+<div class="appcontent" style="width: 97%; height: 51%; max-height: 195px;">
+  Generic about me page
+</div>
+</div>
+
+<!--The Notepad app-->
+<!--It is connected to the Archive button-->
+<!--This example contains an iframe as the content to create a semi-dynamic app-->
+<div id="archive" class="appdiv" style="position: absolute; width: 32%; height: 85%; z-index: 1; left: 33%; top: 3%; max-height: 1000px; min-width: 600px;">
+<div class="appdivheader"><div class="apptitle">Archive - Notepad</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+<br style="font-size: 2px;">
+<div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; Search &nbsp; Help</div>
+<br style="font-size: 2px;">
+<!--This is the iframe, change the src to whatever file you want to use-->
+<iframe class="notepad" style="width: 98.5%; height: 91.6%" src="archive.html"></iframe>
+</div>
+
+<!--The Netscape app-->
+<!--It is connected to the Outgoing button-->
+<!--Includes an example to use multiple webrings without compromising the appearance-->
+<!--With proper html/js knowledge, more webrings can be added-->
+<div id="outgoing" class="appdiv" style="position: absolute; width: 31%; height: 43%; z-index: 1; right: 15px; top: 300px; min-width: 600px; max-height: 445px;">
+<div class="appdivheader"><div class="apptitle">Netscape - [file:///C:|WINDOWS/DESKTOP/outlinks.txt]</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+<br style="font-size: 2px;">
+<div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; Go &nbsp; Bookmarks &nbsp; Options &nbsp; Directory &nbsp; Windows &nbsp; Help</div>
+<br style="font-size: 5px;">
+<div class="notepadheader" style="line-height: 25px;">&nbsp; &nbsp; Location:<div class="locationdiv" style="width:84%;">file:///C:|WINDOWS/DESKTOP/outlinks.txt</div></div>
+<br style="font-size: 10px;">
+<div class="webringouter">
+<!--The first webring example includes a random button, the second does not but it can be added/removed if needed-->
+<div id="genericwebring" class="webring">&nbsp;&nbsp;
+  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/back.gif" height="30px" class="pixeled">
+  <br>Previous
+  </div>&nbsp;
+  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/home.gif" height="30px" class="pixeled">
+  <br>Generic Webring
+  </div>&nbsp;
+  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/random.gif" height="30px" class="pixeled">
+  <br>Random
+  </div>&nbsp;
+  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/next.gif" height="30px" class="pixeled">
+  <br>Next
+  </div>&nbsp;
+</div>
+<!--The second webring example-->
+<div id="secondwebring" class="webring">&nbsp;&nbsp;
+  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/back.gif" height="30px" class="pixeled">
+  <br>Previous
+  </div>&nbsp;
+  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/home.gif" height="30px" class="pixeled">
+  <br>Second Webring
+  </div>&nbsp;
+  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/next.gif" height="30px" class="pixeled">
+  <br>Next
+  </div>&nbsp;
+</div>
+<!--This is the button to cycle through the webrings so you probably shouldn't touch it unless you know what you're doing-->
+<div id="nextwebring" class="webringinner" onclick="nextring()"><img src="images/buttons/nextring.gif" height="30px" class="pixeled"><br>Next Webring</div>
+</div>
+<br style="font-size: 5px;">
+<!--This is the content section where you can put your links and such-->
+<div class="appcontent" style="width: 97%; height: 56%; max-height: 240px;">
+  <a href="#">Generic outlink 1</a> <br>
+  <a href="#">Generic outlink 2</a> <br>
+  <a href="#">Generic outlink 3</a>
+</div>
+</div>
+
+<!--The sidebar-->
+<!--It is connected to the Start button-->
+<!--I use it for blinkies but you could really put anything here-->
+<div class="sidebar" id="sidebar" style="width: 200px; height: 400px; left: 10px; bottom: 80px;">
+  <!--This first section is the Windows 95 logo-->
+  <div style="float: left;width:10%; height: 100%;">
+    <img src="images/sidebar.gif" height="100%" class="pixeled">
+  </div>
+  <!--This second section is the blinkies-->
+  <div style="float: right;width:85%; height: 100%;padding-top:6px">
+    <img src="images/blinkies/transyourgender.gif" class="pixeled" width="100%">
+    <p style="font-size: 7px;"></p>
+    <img src="images/blinkies/pepsi.gif" class="pixeled" width="100%">
+    <p style="font-size: 7px;"></p>
+    <img src="images/blinkies/color.gif" class="pixeled" width="100%">
+    <p style="font-size: 7px;"></p>
+    <img src="images/blinkies/cassette.gif" class="pixeled" width="100%">
+    <p style="font-size: 7px;"></p>
+    <img src="images/blinkies/madewithwindows95.gif" class="pixeled" width="100%">
+    <p style="font-size: 7px;"></p>
+    <img src="images/blinkies/poweredbythevoid.gif" class="pixeled" width="100%">
+  </div>
+</div>
+
+<!--The taskbar-->
+<!--This is where all of the buttons are contained as well as the time div-->
+<div class="taskbar" style="z-index: -1;">
+  <div style="float:left"><img src="images/buttons/start.gif" height="66" class="pixeled" onclick="sidebar()" style="cursor:pointer"></div>
+  <div class="taskbutton" id="aboutbutton" onclick="about()"><span>About Me</span></div>
+  <div class="taskbutton" id="archivebutton" onclick="archive()"><span>Archive</span></div>
+  <div class="taskbutton" id="outgoingbutton" onclick="outgoing()"><span>Outgoing</span></div>
+  <div style="float:right;margin-right:16px">
+<div class="timediv"><span id="datetime"></span><div>
+  </div>
+</div>
+
+<!--The jquery-ui code to make the apps draggable-->
+<!--Important if you intend to add more-->
+<script> $( function() { $( "#about" ).draggable(); }); </script>
+<script> $( function() { $( "#archive" ).draggable(); }); </script>
+<script> $( function() { $( "#outgoing" ).draggable(); }); </script>
+<script> $( function() { $( "#alert" ).draggable(); }); </script>
+
+<script>
+
+  // Get current date and time every second and update the time/date divs. You probably don't need to touch this
+  function gettime(){  
+    var now = new Date();
+    var datetime = now.toLocaleTimeString("en-US", { hour12: false });;
+
+    document.getElementById("datetime").innerHTML = datetime;
+
+    n =  new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+
+    setTimeout(gettime, 1000);
+  }
+
+  gettime();
+
+
+  //hide all apps by default except for the alert popup
+  $('.frameClose').parent().parent().hide();
+  $('#alert').show();
+
+  //attach an onclick script to all the close buttons
+  $(document).ready(function () {
+    var $frame = $('.frameClose')
+
+    $frame.on('click', function () {
+      //this is for the taskbar, it makes the buttons look depressed when an app is closed
+      if($(this).parent().parent()[0].id == "about") {$('#aboutbutton').toggleClass('taskbutton');$('#aboutbutton').toggleClass('taskbutton-open');}
+      if($(this).parent().parent()[0].id == "outgoing") {$('#outgoingbutton').toggleClass('taskbutton');$('#outgoingbutton').toggleClass('taskbutton-open');}
+      if($(this).parent().parent()[0].id == "archive") {$('#archivebutton').toggleClass('taskbutton');$('#archivebutton').toggleClass('taskbutton-open');}
+      $(this).parent().parent().hide();
+    })})
+  
+  //show or hide the apps and make the taskbar buttons look pressed/depressed when an app is open/closed
+  function outgoing(){
+    $('#outgoing').toggle();
+    $('#outgoingbutton').toggleClass('taskbutton');
+    $('#outgoingbutton').toggleClass('taskbutton-open');
+  }
+  function about(){
+    $('#about').toggle();
+    $('#aboutbutton').toggleClass('taskbutton');
+    $('#aboutbutton').toggleClass('taskbutton-open');
+  }
+  function archive(){
+    $('#archive').children('iframe').eq(0).attr("src","archive.html");
+    $('#archive').toggle();
+    $('#archivebutton').toggleClass('taskbutton');
+    $('#archivebutton').toggleClass('taskbutton-open');
+  }
+
+  //hide the sidebar by default and toggle on click
+  function sidebar(){
+    $('#sidebar').toggle();
+  }
+
+  $('#sidebar').hide()
+
+  //hide the second webring by default and cycle on click. More webrings can be added/removed if needed
+  webrings = 2
+  webring = 0
+
+  $('#secondwebring').hide();
+
+  function nextring(){
+    webring = (webring + 1) % webrings
+    if(webring == 0){
+      $('#genericwebring').show();
+      $('#secondwebring').hide();
+    }
+    if(webring == 1){
+      $('#genericwebring').hide();
+      $('#secondwebring').show();
+    }
+  }
+</script>
+
+
+</body>
+
+</html>

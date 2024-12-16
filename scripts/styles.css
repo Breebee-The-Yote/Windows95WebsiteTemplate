@@ -1,0 +1,101 @@
+  body{
+    font-family: wind95;
+  }
+  .appdiv{
+    background-color:#c3c3c3;
+    padding:1px;
+    border-style: outset;
+    border-width:medium
+  }
+  .appdivheader{
+    height:30px;background-color:#000082;text-align:right;padding:3px;
+    cursor:move;
+  }
+  .appbutton{
+    cursor:pointer;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  .pixeled{
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+  }
+  .taskbar {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    background-color:#C3C3C3;
+    width:100%;
+    padding:6px;
+    border-style: outset;
+  }
+  .timediv{
+    border-style: inset;
+    font-size: 30px;
+    padding:11px
+  }
+  .taskbutton{
+    cursor:pointer;
+    float:left;margin-left:10;
+    background-color:#b0b0c0;
+    border-style:outset;
+    font-size:41px;
+    font-weight: bold;
+    padding:10px;
+    border-width:medium;
+    font-family: wind95
+  }
+  .taskbutton-open{
+    cursor:pointer;
+    float:left;margin-left:10;
+    background-color:#e5e5e5;
+    border-style:inset;
+    font-size:41px;
+    font-weight: bold;
+    padding:10px;
+    border-width:medium;
+    font-family: wind95
+  }
+  .notepadheader{
+    font-family: wind95;
+  }
+  .notepad{
+    background-color:#e5e5e5;
+    border: inset;
+  }
+  .apptitle{
+    float:left;color:white;padding-top:5px;
+    font-weight: bold;
+    padding-left:7px
+  }
+  .locationdiv{
+    float:right;
+    background-color:white;
+    border-style:inset;
+    padding-left:3px;
+    margin-right:10px
+  }
+  .webringinner{
+    display: inline-block;
+    text-align: center;
+    border-style: outset;
+    padding: 3px;
+    cursor: pointer
+  }
+  .appcontent{
+    background-color:#e5e5e5;
+    border: inset;
+    padding:5px;
+    font-size:20px
+  }
+  .webring{
+    display: inline-block;
+  }
+  .sidebar{
+    background-color: #c3c3c3;
+    border-style: outset;
+    position: absolute;
+    padding-right:5px;
+  }
