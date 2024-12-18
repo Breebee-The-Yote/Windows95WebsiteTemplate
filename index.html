@@ -25,11 +25,11 @@
 
 <!--This is the alert popup-->
 <!--This is what appears when the user first loads the page-->
-<div id="alert" class="appdiv" style="position: absolute; width: 28%; height: 22%; z-index: 1; left: 30%; top: 100px; max-height: 300px; min-height:200px; min-width: 400px;">
+<div id="alert" class="appdiv" style="position: absolute; width: 28%; height: 22%; z-index: 30; left: 30%; top: 100px; max-height: 300px; min-height:200px; min-width: 400px;">
   <div class="appdivheader"><div class="apptitle">Alert</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
   <div style="display: inline-block; padding: 30px; margin-right:15px"><img src="images/alert.png" height="30%" class="pixeled"></div>
   <!--In order for it to work right with the image, it must be 3 lines. If you need less a <br> can be used instead-->
-  <div style="display: inline-block;">Currently running v1.5<br>Updated 12/17/2024 with note:<br>Added a few desktop apps for a more realistic appearance</div><br>
+  <div style="display: inline-block;">Currently running v1.6<br>Updated 12/17/2024 with note:<br>Added a login screen and an editable notepad</div><br>
   <br><div style="display: flex;justify-content: center;"><div style="border-style: outset;display: inline-block; cursor:pointer" class="frameclose">Accpet and Close</div></div>
 </div>
 
@@ -46,25 +46,19 @@
     </div>
     <div class="appcontent" style="width: 97%; height: 79.25%; max-height: 320px;">
       <a target="_blank" href="https://github.com/Breebee-The-Yote/Windows95WebsiteTemplate">Windows 95 Website Template</a> by <a target="_blank" href="https://github.com/Breebee-The-Yote" style="text-decoration: none;color:black">Breebee</a><br>
-      Running version 1.5<br>
-      Added a more desktop features:<br>
-      - My Computer app for changelogs and version information<br>
-      - Recycle Bin app with functional clear button<br>
-      - Folder app template<br>
-      - Optional audio for boot and alert<br>
-      - Realistic desktop load time<br>
-      - Fixed the clock to be 12 hour time instead of 24<br>
+      Running version 1.6<br>
+      Added a login screen and an editable notepad
     </div>
 </div>
 
 <!--The Recycle Bin app-->
 <!--It is connected to the Recycle Bin icon-->
-<div id="recycle" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 1; left: 80px; top: 250px; min-width: 600px; max-height: 420px; min-height: 385px;">
+<div id="recycle" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 2; left: 80px; top: 250px; min-width: 600px; max-height: 420px; min-height: 385px;">
     <div class="appdivheader"><div class="apptitle">Recycle Bin</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
     <div class="netmail">
       <br style="font-size: 2px;">
       <div class="notepadheader" style="display: inline-block;margin-top:5px">&nbsp; File &nbsp; Edit &nbsp; View &nbsp; Help</div>
-      <div class="notepadheader" style="border-style:outset; cursor:pointer;float:right; margin-right:10px;padding:2px;margin-top: 1px;" onclick="emptybin()"> Empty Recycle Bin</div>
+      <div class="notepadheader" style="border-style:outset; cursor:pointer;float:right; margin-right:10px;padding:2px;margin-top: 1px;" onclick="recycle()"> Empty Recycle Bin</div>
       <p style="font-size: 10px;"></p>
     <div>
     &nbsp;<div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:13%">Name</div>
@@ -85,11 +79,18 @@
         GIF Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,430KB<br>
       </div>
     </div>
+    <div id="recycleconfirm" class="appdiv" style="position: absolute; width: 35%; height: 60%; z-index: 29; left: 15%; top: 80px; max-height: 300px; min-height:200px; min-width: 400px;">
+      <div class="appdivheader"><div class="apptitle">Confirm File Delete</div></div>
+      <div style="display: inline-block; padding: 30px; margin-right:15px"><img src="images/alert.png" height="30%" class="pixeled"></div>
+      <div style="display: inline-block;">Are you sure you want to delete these files?<br>(this action is permanent)<br>&nbsp;</div><br>
+      <br><div style="display: flex;justify-content: center;"><div style="border-style: outset;display: inline-block; cursor:pointer; padding-left:20px; padding-right:20px" class="frameclose" onclick="emptybin()">Yes</div><span style="margin-right:30px"></span><div onclick="$('#recycleconfirm').hide()" style="border-style: outset;display: inline-block; cursor:pointer; padding-left:20px; padding-right:20px" class="frameclose">No</div></div>
+    </div>
 </div>
+
 
 <!--The Folder app-->
 <!--It is connected to the Folder icon-->
-<div id="folder" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 1; left: 80px; top: 420px; min-width: 600px; max-height: 420px; min-height: 385px;">
+<div id="folder" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 3; left: 80px; top: 420px; min-width: 600px; max-height: 420px; min-height: 385px;">
     <div class="appdivheader"><div class="apptitle">Icons</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
     <div class="netmail">
       <br style="font-size: 2px;">
@@ -108,12 +109,14 @@
       <div class="smolicon"><img src="images/buttons/nextring.gif" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Next Webring</span></div>
       <div class="smolicon"><img src="images/buttons/random.gif" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Random</span></div>
       <div class="smolicon"><img src="images/alert.png" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Alert</span></div>
+      <div class="smolicon"><img src="images/icons/Notepad.ico" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Notepad</span></div>
+
     </div>
 </div>
 
 <!--The Internet Mail app-->
 <!--It is connected to the About Me button-->
-<div id="about" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 1; left: 10px; top: 100px; min-width: 600px; max-height: 420px; min-height: 385px;">
+<div id="about" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 4; left: 10px; top: 100px; min-width: 600px; max-height: 420px; min-height: 385px;">
     <div class="appdivheader"><div class="apptitle">Internet Mail</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
     <div class="netmail">
       <br style="font-size: 2px;">
@@ -142,20 +145,20 @@
     <!--The Notepad app-->
     <!--It is connected to the Archive button-->
     <!--This example contains an iframe as the content to create a semi-dynamic app-->
-    <div id="archive" class="appdiv" style="position: absolute; width: 32%; height: 85%; z-index: 1; left: 33%; top: 3%; max-height: 1000px; min-width: 600px;">
+    <div id="archive" class="appdiv" style="position: absolute; width: 32%; height: 85%; z-index: 6; left: 33%; top: 3%; max-height: 1000px; min-width: 600px;">
     <div class="appdivheader"><div class="apptitle">Archive - Notepad</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
     <br style="font-size: 2px;">
     <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; Search &nbsp; Help</div>
     <br style="font-size: 2px;">
     <!--This is the iframe, change the src to whatever file you want to use-->
-    <iframe class="notepad" style="width: 98.5%; height: 91.6%" src="archive.html"></iframe>
+    <iframe class="notepad" style="width: 98.5%; height: 91.6%" src="archive.html" id="notepad"></iframe>
     </div>
     
     <!--The Netscape app-->
     <!--It is connected to the Outgoing button-->
     <!--Includes an example to use multiple webrings without compromising the appearance-->
     <!--With proper html/js knowledge, more webrings can be added-->
-    <div id="outgoing" class="appdiv" style="position: absolute; width: 31%; height: 43%; z-index: 1; right: 15px; top: 300px; min-width: 600px; max-height: 445px; min-height: 420px;">
+    <div id="outgoing" class="appdiv" style="position: absolute; width: 31%; height: 43%; z-index: 5; right: 15px; top: 300px; min-width: 600px; max-height: 445px; min-height: 420px;">
     <div class="appdivheader"><div class="apptitle">Netscape - [file:///C:|WINDOWS/DESKTOP/outlinks.txt]</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
     <br style="font-size: 2px;">
     <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; Go &nbsp; Bookmarks &nbsp; Options &nbsp; Directory &nbsp; Windows &nbsp; Help</div>
@@ -202,10 +205,39 @@
     </div>
     </div>
 
+<!--The Imaging app-->
+<!--It is connected to the the images in the Icons folder-->
+<div id="imaging" class="appdiv" style="position: absolute; width: 600px; height: 400px; z-index: 7; left: 130px; top: 400px; max-height: 420px; min-height: 385px;">
+  <div class="appdivheader"><div class="apptitle"><span id="imagingtitle">untitled - Imaging</span></div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+  <div class="netmail">
+    <br style="font-size: 2px;">
+    <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; View &nbsp; Page &nbsp; Zoom &nbsp; Annotation &nbsp; Help</div>
+    <br style="font-size: 3px;">
+  </div>
+  <div id="imagingimage" class="appcontent" style="width: 97%; height: 79.25%; max-height: 320px; padding:20px">
+    <img src="images/icons/My Computer.ico" class="pixeled" height="80%">
+  </div>
+</div>
+
+<!--The login screen-->
+<!--Without this the startup sound effect won't autoplay and I want it to do that-->
+<div id="loginscreen" style="position:absolute;width:100%;height:100%;z-index:32;background-color:#008282;;left:0px;top:0px;max-height: 1000px;">
+  <div class="appdiv" style="position:absolute;width:30%;height:27%;z-index:33;left:34%;top:15%">
+    <div class="appdivheader"><div class="apptitle">Login</div></div>
+    <br style="font-size: 15px;">
+    <center><div class="appcontent" style="width: 90%; height: 50%; max-height: 340px; padding-left:5px; padding-right:5px; padding-top: 15px;">
+      Note: This website was built on Firefox at 1920x1080 however it should work fine on most browsers and sizes<br>
+      This website also features audio. If you have an aversion to audio, please mute this tab
+    </div></center>
+    <br style="font-size: 10px;">
+    <div style="display: flex;justify-content: center;"><div style="border-style: outset;display: inline-block; cursor:pointer" onclick="startwindows()">Accpet and Close</div></div>
+  </div>
+</div>
+
 <!--The sidebar-->
 <!--It is connected to the Start button-->
 <!--I use it for blinkies but you could really put anything here-->
-<div class="sidebar" id="sidebar" style="width: 200px; height: 400px; left: 10px; bottom: 80px;">
+<div class="sidebar" id="sidebar" style="width: 200px; height: 400px; left: 10px; bottom: 80px; z-index: 0;">
   <!--This first section is the Windows 95 logo-->
   <div style="float: left;width:10%; height: 100%;">
     <img src="images/sidebar.gif" height="100%" class="pixeled">
@@ -230,6 +262,8 @@
     <div class="icon" onclick="$('#mycomputer').show()"><img src="images/icons/My Computer.ico" class="pixeled" width="100px"><p style="font-size: 7px;"></p><span class="icontext">My Computer</span></div>
     <div class="icon" onclick="$('#recycle').show()" style="margin-left: 25px"><img id="recycleicon" src="images/icons/Recycle Bin with paper.ico" class="pixeled" width="100px"><p style="font-size: 7px;"></p><span class="icontext">Recycle Bin</span></div>
     <div class="icon" onclick="$('#folder').show()" style="margin-left: 35px"><img src="images/icons/Folder.ico" class="pixeled" width="100px"><p style="font-size: 7px;"></p><span class="icontext">Icons</span></div>
+    <div class="icon" onclick="blanknotes()" style="margin-left: 30px"><img src="images/icons/Notepad.ico" class="pixeled" width="100px"><p style="font-size: 7px;"></p><span class="icontext">Notepad</span></div>
+
 </div>
 
 <!--The taskbar-->
@@ -253,6 +287,7 @@
 <script> $( function() { $( "#recycle" ).draggable(); }); </script>
 <script> $( function() { $( "#folder" ).draggable(); }); </script>
 <script> $( function() { $( "#mycomputer" ).draggable(); }); </script>
+<script> $( function() { $( "#imaging" ).draggable(); }); </script>
 
 <script>
 
@@ -282,6 +317,12 @@
 
   //attach an onclick script to all the close buttons
   $(document).ready(function () {
+
+  })
+
+  function startwindows(){
+    $('#loginscreen').hide();
+
     var startup = new Audio("audio/startup.wav"); // buffers automatically when created
     startup.play();
 
@@ -296,7 +337,17 @@
     })
     setTimeout(appear, 1000);
     setTimeout(playchord, 5000);
-  })
+
+    var $smallicon = $('.smolicon');
+    $smallicon.on('click', function () {
+      $('#imaging').show();
+      $('#imaging').children('#imagingimage').first().children('img')[0].src = $(this).children('img')[0].src;
+      $('#imaging')[0].style.width=  parseFloat($('#imaging').children('#imagingimage').first().children('img')[0].width.toString().replace('px','')) + 50 + 'px';
+      $('#imagingimage')[0].style.width =  parseFloat($('#imaging')[0].style.width.toString().replace('px','')) - 47 + 'px';
+      $('#imagingimage')[0].style.height =  parseFloat($('#imaging')[0].style.height.toString().replace('px','')) - 129 + 'px';
+      $('#imagingtitle')[0].innerHTML =  $(this).children('span')[0].innerHTML + " - Imaging";
+    })
+  }
 
   function playchord(){
     chord.play();
@@ -354,9 +405,24 @@
     }
   }
 
+  function recycle(){
+    $('#recycleconfirm').show();
+    chord.play();
+  }
   function emptybin(){
     $('#bincontent').html('');
     $('#recycleicon')[0].src = "images/icons/Empty Recycle Bin.ico";
+    $('#recycleconfirm').hide();
+  }
+
+  function blanknotes(){
+    $('#notepad')[0].src = 'blank.html';
+    
+  if(!$('#archive').is(':visible')){
+    $('#archive').show();
+    $('#archivebutton').toggleClass('taskbutton-open');
+    $('#archivebutton').toggleClass('taskbutton');
+  }
   }
 </script>
 
