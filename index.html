@@ -29,100 +29,178 @@
   <div class="appdivheader"><div class="apptitle">Alert</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
   <div style="display: inline-block; padding: 30px; margin-right:15px"><img src="images/alert.png" height="30%" class="pixeled"></div>
   <!--In order for it to work right with the image, it must be 3 lines. If you need less a <br> can be used instead-->
-  <div style="display: inline-block;">Currently running v1.4<br>Updated 12/17/2024 with note:<br>Upgraded mobile compatibility and fixed sizing issues</div><br>
+  <div style="display: inline-block;">Currently running v1.4<br>Updated 12/17/2024 with note:<br>Added a few desktop apps for a more realistic appearance</div><br>
   <br><div style="display: flex;justify-content: center;"><div style="border-style: outset;display: inline-block; cursor:pointer" class="frameclose">Accpet and Close</div></div>
+</div>
+
+<!--The My Computer app-->
+<!--It is connected to the My Computer icon-->
+<!--I'm using this for the version number and such-->
+<!--This is the one thing I really ask you don't touch cause it's always cool when you give credit where credit is due-->
+<div id="mycomputer" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 1; left: 80px; top: 60px; min-width: 600px; max-height: 420px; min-height: 385px;">
+    <div class="appdivheader"><div class="apptitle">My Computer</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+    <div class="netmail">
+      <br style="font-size: 2px;">
+      <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; View &nbsp; Help</div>
+      <br style="font-size: 3px;">
+    </div>
+    <div class="appcontent" style="width: 97%; height: 79.25%; max-height: 320px;">
+      <a href="https://github.com/Breebee-The-Yote/Windows95WebsiteTemplate">Windows 95 Website Template</a> by Breebee<br>
+      Running version 1.5<br>
+      Added a more desktop features:<br>
+      - My Computer app for changelogs and version information<br>
+      - Recycle Bin app with functional clear button<br>
+      - Folder app template<br>
+      - Optional audio for boot and alert<br>
+      - Realistic desktop load time<br>
+      - Fixed the clock to be 12 hour time instead of 24<br>
+    </div>
+</div>
+
+<!--The Recycle Bin app-->
+<!--It is connected to the Recycle Bin icon-->
+<div id="recycle" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 1; left: 80px; top: 250px; min-width: 600px; max-height: 420px; min-height: 385px;">
+    <div class="appdivheader"><div class="apptitle">Recycle Bin</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+    <div class="netmail">
+      <br style="font-size: 2px;">
+      <div class="notepadheader" style="display: inline-block;margin-top:5px">&nbsp; File &nbsp; Edit &nbsp; View &nbsp; Help</div>
+      <div class="notepadheader" style="border-style:outset; cursor:pointer;float:right; margin-right:10px;padding:2px;margin-top: 1px;" onclick="emptybin()"> Empty Recycle Bin</div>
+      <p style="font-size: 10px;"></p>
+    <div>
+    &nbsp;<div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:13%">Name</div>
+    <div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:23%">Original Location</div>
+    <div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:17.5%">Date Deleted</div>
+    <div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:17%">Type</div>
+    <div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:17%">Size</div></div>
+    </div><br style="font-size: 2px;">
+    <div class="appcontent" style="width: 97%; height: 68%; max-height: 300px;">
+      <div id="bincontent">
+        UwU.gif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        C:\WINDOWS\... &nbsp;&nbsp;&nbsp;
+        12/17/2024 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        GIF Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2,305KB<br>
+        OwO.gif &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        C:\WINDOWS\... &nbsp;&nbsp;&nbsp;
+        12/16/2024 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        GIF Image &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1,430KB<br>
+      </div>
+    </div>
+</div>
+
+<!--The Folder app-->
+<!--It is connected to the Folder icon-->
+<div id="folder" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 1; left: 80px; top: 420px; min-width: 600px; max-height: 420px; min-height: 385px;">
+    <div class="appdivheader"><div class="apptitle">Icons</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+    <div class="netmail">
+      <br style="font-size: 2px;">
+      <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; View &nbsp; Help</div>
+      <br style="font-size: 3px;">
+    </div>
+    <div class="appcontent" style="width: 97%; height: 79.25%; max-height: 320px;">
+      <div class="smolicon"><img src="images/icons/My Computer.ico" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">My Computer</span></div>
+      <div class="smolicon"><img src="images/icons/Recycle Bin with paper.ico" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Recycle Bin with paper</span></div>
+      <div class="smolicon"><img src="images/icons/Empty Recycle Bin.ico" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Empty Recycle Bin</span></div>
+      <div class="smolicon"><img src="images/icons/Folder.ico" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Folder</span></div>
+      <div class="smolicon"><img src="images/buttons/start.gif" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Start</span></div>
+      <div class="smolicon"><img src="images/buttons/back.gif" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Back</span></div>
+      <div class="smolicon"><img src="images/buttons/close.gif" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Close</span></div>
+      <div class="smolicon"><img src="images/buttons/home.gif" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Home</span></div>
+      <div class="smolicon"><img src="images/buttons/nextring.gif" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Next Webring</span></div>
+      <div class="smolicon"><img src="images/buttons/random.gif" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Random</span></div>
+      <div class="smolicon"><img src="images/alert.png" class="pixeled" width="50px"><p style="font-size: 5px;"></p><span class="smolicontext">Alert</span></div>
+    </div>
 </div>
 
 <!--The Internet Mail app-->
 <!--It is connected to the About Me button-->
 <div id="about" class="appdiv" style="position: absolute; width: 31%; height: 39%; z-index: 1; left: 10px; top: 100px; min-width: 600px; max-height: 420px; min-height: 385px;">
-<div class="appdivheader"><div class="apptitle">Internet Mail</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
-<div class="netmail">
-  <br style="font-size: 2px;">
-  <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; View &nbsp; Mail &nbsp; Help</div>
-  <br style="font-size: 5px;">
-<div class="notepadheader" style="line-height: 24px;">&nbsp; &nbsp; Folders<div class="locationdiv" style="width:86.5%;">Inbox</div></div>
-<br style="font-size: 8px;">
-<div>
-&nbsp;<div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:30.7%">From</div>
-<div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:30.7%">Subject</div>
-<div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:30.7%">Recieved</div></div>
-<br style="font-size: 3px;">
-<!--This is the section with the username, title, and date-->
-<!--The date is dynamically updated to the current one-->
-<!--It may look like an absurd amout of &nbsp; but that's the amount of space it needed and I don't know how else to do it-->
-<div class="appcontent" style="width: 97%; height: 6%">Username 
-  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  About Me 
-  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span id="date">current</span></div>
-</div><br style="font-size: 2px;">
-<!--The message content or in this case, the about me paragraph-->
-<div class="appcontent" style="width: 97%; height: 51%; max-height: 195px;">
-  Generic about me page
-</div>
-</div>
-
-<!--The Notepad app-->
-<!--It is connected to the Archive button-->
-<!--This example contains an iframe as the content to create a semi-dynamic app-->
-<div id="archive" class="appdiv" style="position: absolute; width: 32%; height: 85%; z-index: 1; left: 33%; top: 3%; max-height: 1000px; min-width: 600px;">
-<div class="appdivheader"><div class="apptitle">Archive - Notepad</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
-<br style="font-size: 2px;">
-<div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; Search &nbsp; Help</div>
-<br style="font-size: 2px;">
-<!--This is the iframe, change the src to whatever file you want to use-->
-<iframe class="notepad" style="width: 98.5%; height: 91.6%" src="archive.html"></iframe>
-</div>
-
-<!--The Netscape app-->
-<!--It is connected to the Outgoing button-->
-<!--Includes an example to use multiple webrings without compromising the appearance-->
-<!--With proper html/js knowledge, more webrings can be added-->
-<div id="outgoing" class="appdiv" style="position: absolute; width: 31%; height: 43%; z-index: 1; right: 15px; top: 300px; min-width: 600px; max-height: 445px; min-height: 420px;">
-<div class="appdivheader"><div class="apptitle">Netscape - [file:///C:|WINDOWS/DESKTOP/outlinks.txt]</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
-<br style="font-size: 2px;">
-<div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; Go &nbsp; Bookmarks &nbsp; Options &nbsp; Directory &nbsp; Windows &nbsp; Help</div>
-<br style="font-size: 5px;">
-<div class="notepadheader" style="line-height: 25px;">&nbsp; &nbsp; Location:<div class="locationdiv" style="width:84%;">file:///C:|WINDOWS/DESKTOP/outlinks.txt</div></div>
-<br style="font-size: 10px;">
-<div class="webringouter">
-<!--The first webring example includes a random button, the second does not but it can be added/removed if needed-->
-<div id="genericwebring" class="webring">&nbsp;&nbsp;
-  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/back.gif" height="30px" class="pixeled">
-  <br>Previous
-  </div>&nbsp;
-  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/home.gif" height="30px" class="pixeled">
-  <br>Generic Webring
-  </div>&nbsp;
-  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/random.gif" height="30px" class="pixeled">
-  <br>Random
-  </div>&nbsp;
-  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/next.gif" height="30px" class="pixeled">
-  <br>Next
-  </div>&nbsp;
-</div>
-<!--The second webring example-->
-<div id="secondwebring" class="webring">&nbsp;&nbsp;
-  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/back.gif" height="30px" class="pixeled">
-  <br>Previous
-  </div>&nbsp;
-  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/home.gif" height="30px" class="pixeled">
-  <br>Second Webring
-  </div>&nbsp;
-  <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/next.gif" height="30px" class="pixeled">
-  <br>Next
-  </div>&nbsp;
-</div>
-<!--This is the button to cycle through the webrings so you probably shouldn't touch it unless you know what you're doing-->
-<div id="nextwebring" class="webringinner" onclick="nextring()"><img src="images/buttons/nextring.gif" height="30px" class="pixeled"><br>Next Webring</div>
-</div>
-<br style="font-size: 5px;">
-<!--This is the content section where you can put your links and such-->
-<div class="appcontent" style="width: 97%; height: 56%; max-height: 240px;">
-  <a href="#">Generic outlink 1</a> <br>
-  <a href="#">Generic outlink 2</a> <br>
-  <a href="#">Generic outlink 3</a>
-</div>
-</div>
+    <div class="appdivheader"><div class="apptitle">Internet Mail</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+    <div class="netmail">
+      <br style="font-size: 2px;">
+      <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; View &nbsp; Mail &nbsp; Help</div>
+      <br style="font-size: 5px;">
+    <div class="notepadheader" style="line-height: 24px;">&nbsp; &nbsp; Folders<div class="locationdiv" style="width:86.5%;">Inbox</div></div>
+    <br style="font-size: 8px;">
+    <div>
+    &nbsp;<div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:30.7%">From</div>
+    <div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:30.7%">Subject</div>
+    <div class="notepadheader" style="display: inline-block;border-style: outset;padding:2px;width:30.7%">Recieved</div></div>
+    <br style="font-size: 3px;">
+    <!--This is the section with the username, title, and date-->
+    <!--The date is dynamically updated to the current one-->
+    <!--It may look like an absurd amout of &nbsp; but that's the amount of space it needed and I don't know how else to do it-->
+    <div class="appcontent" style="width: 97%; height: 6%">Username 
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  About Me 
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span id="date">current</span></div>
+    </div><br style="font-size: 2px;">
+    <!--The message content or in this case, the about me paragraph-->
+    <div class="appcontent" style="width: 97%; height: 51%; max-height: 195px;">
+      Generic about me page
+    </div>
+    </div>
+    
+    <!--The Notepad app-->
+    <!--It is connected to the Archive button-->
+    <!--This example contains an iframe as the content to create a semi-dynamic app-->
+    <div id="archive" class="appdiv" style="position: absolute; width: 32%; height: 85%; z-index: 1; left: 33%; top: 3%; max-height: 1000px; min-width: 600px;">
+    <div class="appdivheader"><div class="apptitle">Archive - Notepad</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+    <br style="font-size: 2px;">
+    <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; Search &nbsp; Help</div>
+    <br style="font-size: 2px;">
+    <!--This is the iframe, change the src to whatever file you want to use-->
+    <iframe class="notepad" style="width: 98.5%; height: 91.6%" src="archive.html"></iframe>
+    </div>
+    
+    <!--The Netscape app-->
+    <!--It is connected to the Outgoing button-->
+    <!--Includes an example to use multiple webrings without compromising the appearance-->
+    <!--With proper html/js knowledge, more webrings can be added-->
+    <div id="outgoing" class="appdiv" style="position: absolute; width: 31%; height: 43%; z-index: 1; right: 15px; top: 300px; min-width: 600px; max-height: 445px; min-height: 420px;">
+    <div class="appdivheader"><div class="apptitle">Netscape - [file:///C:|WINDOWS/DESKTOP/outlinks.txt]</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
+    <br style="font-size: 2px;">
+    <div class="notepadheader">&nbsp; File &nbsp; Edit &nbsp; Go &nbsp; Bookmarks &nbsp; Options &nbsp; Directory &nbsp; Windows &nbsp; Help</div>
+    <br style="font-size: 5px;">
+    <div class="notepadheader" style="line-height: 25px;">&nbsp; &nbsp; Location:<div class="locationdiv" style="width:84%;">file:///C:|WINDOWS/DESKTOP/outlinks.txt</div></div>
+    <br style="font-size: 10px;">
+    <div class="webringouter">
+    <!--The first webring example includes a random button, the second does not but it can be added/removed if needed-->
+    <div id="genericwebring" class="webring">&nbsp;&nbsp;
+      <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/back.gif" height="30px" class="pixeled">
+      <br>Previous
+      </div>&nbsp;
+      <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/home.gif" height="30px" class="pixeled">
+      <br>Generic Webring
+      </div>&nbsp;
+      <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/random.gif" height="30px" class="pixeled">
+      <br>Random
+      </div>&nbsp;
+      <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/next.gif" height="30px" class="pixeled">
+      <br>Next
+      </div>&nbsp;
+    </div>
+    <!--The second webring example-->
+    <div id="secondwebring" class="webring">&nbsp;&nbsp;
+      <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/back.gif" height="30px" class="pixeled">
+      <br>Previous
+      </div>&nbsp;
+      <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/home.gif" height="30px" class="pixeled">
+      <br>Second Webring
+      </div>&nbsp;
+      <div class="webringinner" onclick="window.location.href='#'"><img src="images/buttons/next.gif" height="30px" class="pixeled">
+      <br>Next
+      </div>&nbsp;
+    </div>
+    <!--This is the button to cycle through the webrings so you probably shouldn't touch it unless you know what you're doing-->
+    <div id="nextwebring" class="webringinner" onclick="nextring()"><img src="images/buttons/nextring.gif" height="30px" class="pixeled"><br>Next Webring</div>
+    </div>
+    <br style="font-size: 5px;">
+    <!--This is the content section where you can put your links and such-->
+    <div class="appcontent" style="width: 97%; height: 56%; max-height: 240px;">
+      <a href="#">Generic outlink 1</a> <br>
+      <a href="#">Generic outlink 2</a> <br>
+      <a href="#">Generic outlink 3</a>
+    </div>
+    </div>
 
 <!--The sidebar-->
 <!--It is connected to the Start button-->
@@ -148,9 +226,15 @@
   </div>
 </div>
 
+<div id="icons">
+    <div class="icon" onclick="$('#mycomputer').show()"><img src="images/icons/My Computer.ico" class="pixeled" width="100px"><p style="font-size: 7px;"></p><span class="icontext">My Computer</span></div>
+    <div class="icon" onclick="$('#recycle').show()" style="margin-left: 25px"><img id="recycleicon" src="images/icons/Recycle Bin with paper.ico" class="pixeled" width="100px"><p style="font-size: 7px;"></p><span class="icontext">Recycle Bin</span></div>
+    <div class="icon" onclick="$('#folder').show()" style="margin-left: 35px"><img src="images/icons/Folder.ico" class="pixeled" width="100px"><p style="font-size: 7px;"></p><span class="icontext">Icons</span></div>
+</div>
+
 <!--The taskbar-->
 <!--This is where all of the buttons are contained as well as the time div-->
-<div class="taskbar" style="z-index: -1;">
+<div class="taskbar" style="z-index: -1;" id="taskbar">
   <div style="float:left"><img src="images/buttons/start.gif" height="66" class="pixeled" onclick="sidebar()" style="cursor:pointer"></div>
   <div class="taskbutton" id="aboutbutton" onclick="about()"><span>About Me</span></div>
   <div class="taskbutton" id="archivebutton" onclick="archive()"><span>Archive</span></div>
@@ -166,13 +250,16 @@
 <script> $( function() { $( "#archive" ).draggable(); }); </script>
 <script> $( function() { $( "#outgoing" ).draggable(); }); </script>
 <script> $( function() { $( "#alert" ).draggable(); }); </script>
+<script> $( function() { $( "#recycle" ).draggable(); }); </script>
+<script> $( function() { $( "#folder" ).draggable(); }); </script>
+<script> $( function() { $( "#mycomputer" ).draggable(); }); </script>
 
 <script>
 
   // Get current date and time every second and update the time/date divs. You probably don't need to touch this
   function gettime(){  
     var now = new Date();
-    var datetime = now.toLocaleTimeString("en-US", { hour12: false });;
+    var datetime = now.toLocaleTimeString("en-US", { hour12: true, timeStyle: "short" });;
 
     document.getElementById("datetime").innerHTML = datetime;
 
@@ -190,10 +277,15 @@
 
   //hide all apps by default except for the alert popup
   $('.frameClose').parent().parent().hide();
-  $('#alert').show();
+
+  var chord = new Audio("audio/chord.wav");
 
   //attach an onclick script to all the close buttons
   $(document).ready(function () {
+    var startup = new Audio("audio/startup.wav"); // buffers automatically when created
+    startup.play();
+
+
     var $frame = $('.frameClose')
 
     $frame.on('click', function () {
@@ -202,8 +294,24 @@
       if($(this).parent().parent()[0].id == "outgoing") {$('#outgoingbutton').toggleClass('taskbutton');$('#outgoingbutton').toggleClass('taskbutton-open');}
       if($(this).parent().parent()[0].id == "archive") {$('#archivebutton').toggleClass('taskbutton');$('#archivebutton').toggleClass('taskbutton-open');}
       $(this).parent().parent().hide();
-    })})
-  
+    })
+    setTimeout(appear, 1000);
+    setTimeout(playchord, 5000);
+  })
+
+  function playchord(){
+    chord.play();
+    $('#alert').show();
+  }
+
+  $('#taskbar').hide();
+  $('#icons').hide();
+
+  function appear(){
+    $('#taskbar').show();
+    $('#icons').show();
+  }
+
   //show or hide the apps and make the taskbar buttons look pressed/depressed when an app is open/closed
   function outgoing(){
     $('#outgoing').toggle();
@@ -245,6 +353,11 @@
       $('#genericwebring').hide();
       $('#secondwebring').show();
     }
+  }
+
+  function emptybin(){
+    $('#bincontent').html('');
+    $('#recycleicon')[0].src = "images/icons/Empty Recycle Bin.ico";
   }
 </script>
 
