@@ -29,7 +29,7 @@
   <div class="appdivheader"><div class="apptitle">Alert</div><img src=images/buttons/close.gif width=32px class="appbutton frameclose"></div>
   <div style="display: inline-block; padding: 30px; margin-right:15px"><img src="images/alert.png" height="30%" class="pixeled"></div>
   <!--In order for it to work right with the image, it must be 3 lines. If you need less a <br> can be used instead-->
-  <div style="display: inline-block;">Currently running v1.4<br>Updated 12/17/2024 with note:<br>Added a few desktop apps for a more realistic appearance</div><br>
+  <div style="display: inline-block;">Currently running v1.5<br>Updated 12/17/2024 with note:<br>Added a few desktop apps for a more realistic appearance</div><br>
   <br><div style="display: flex;justify-content: center;"><div style="border-style: outset;display: inline-block; cursor:pointer" class="frameclose">Accpet and Close</div></div>
 </div>
 
@@ -45,7 +45,7 @@
       <br style="font-size: 3px;">
     </div>
     <div class="appcontent" style="width: 97%; height: 79.25%; max-height: 320px;">
-      <a href="https://github.com/Breebee-The-Yote/Windows95WebsiteTemplate">Windows 95 Website Template</a> by Breebee<br>
+      <a target="_blank" href="https://github.com/Breebee-The-Yote/Windows95WebsiteTemplate">Windows 95 Website Template</a> by <a target="_blank" href="https://github.com/Breebee-The-Yote" style="text-decoration: none;color:black">Breebee</a><br>
       Running version 1.5<br>
       Added a more desktop features:<br>
       - My Computer app for changelogs and version information<br>
@@ -259,7 +259,7 @@
   // Get current date and time every second and update the time/date divs. You probably don't need to touch this
   function gettime(){  
     var now = new Date();
-    var datetime = now.toLocaleTimeString("en-US", { hour12: true, timeStyle: "short" });;
+    var datetime = now.toLocaleTimeString("en-US", { hour12: true, timeStyle: "short" });
 
     document.getElementById("datetime").innerHTML = datetime;
 
@@ -284,7 +284,6 @@
   $(document).ready(function () {
     var startup = new Audio("audio/startup.wav"); // buffers automatically when created
     startup.play();
-
 
     var $frame = $('.frameClose')
 
